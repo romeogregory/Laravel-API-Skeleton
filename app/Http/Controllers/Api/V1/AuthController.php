@@ -3,39 +3,26 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserCreateRequest;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 
 class AuthController extends Controller
 {
-    public function register(Request $request)
+    public function register(UserCreateRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'email' => 'required|email|unique:users',
-            'name' => 'required|string|max:50',
-            'password' => 'required'
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password)
         ]);
-
-        if($validator->fails())
-        {
-            return response()->json([
-                'status' => false,
-                'output' => $validator->errors(),
-            ], 422);
-        }
-        else
-        {
-            $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => bcrypt($request->password)
-            ]);
-           
-            $token = $user->createToken('LaravelAuthApp')->accessToken;
-     
-            return response()->json(['token' => $token], 200);
-        }
+       
+        $token = $user->createToken('LaravelAuthApp')->accessToken;
+ 
+        return response()->json([
+            'success' => true,
+            'token' => $token
+        ], 200);
     }
 
     public function login(Request $request)
@@ -47,9 +34,15 @@ class AuthController extends Controller
  
         if (auth()->attempt($data)) {
             $token = auth()->user()->createToken('LaravelAuthApp')->accessToken;
-            return response()->json(['token' => $token], 200);
+            return response()->json([
+                'success' => true,
+                'token' => $token
+            ], 200);
         } else {
-            return response()->json(['error' => 'Unauthorised'], 401);
+            return response()->json([
+                'success' => false,
+                'error' => 'Unauthorised'
+            ], 401);
         }
     }  
 }
