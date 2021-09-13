@@ -17,7 +17,7 @@ class AuthController extends Controller
             'password' => bcrypt($request->password)
         ]);
        
-        $token = $user->createToken('MyApp')->accessToken;
+        $token = $user->createToken('LaravelAuthApp')->accessToken;
  
         return response()->json([
             'success' => true,
