@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\AuthController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\V1\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +21,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
+
+// Customer routers
+Route::middleware('auth:api')->group( function () {
+
+    Route::get('customers', [CustomerController::class, 'index']);
+    Route::get('test', [CustomerController::class, 'test']);
+
+});

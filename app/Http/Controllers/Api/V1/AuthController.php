@@ -42,8 +42,7 @@ class AuthController extends Controller
             $token = auth()->user()->createToken('LaravelAuthApp')->accessToken;
             return response()->json([
                 'success' => true,
-                'token' => $token,
-                'test' => auth()->user()->firstname
+                'token' => $token
             ], 200);
         } else {
             return response()->json([
