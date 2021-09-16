@@ -44,11 +44,11 @@ class AuthController extends BaseController
 
         } else {
             if (!Customer::where('email', '=', $data['email'])->exists()) {
-                return $this->sendError('Unauthorised.', ['error'=>'Email does not exist']);
+                return $this->sendError('Unauthorised.', ['error' => 'Email does not exist']);
              }
              else
              {
-                return $this->sendError('Unauthorised.', ['error'=>'Password does not match with the given Email']);
+                return $this->sendError('Unauthorised.', ['error' => 'Password does not match with the given email']);
              }
             
 
@@ -60,7 +60,7 @@ class AuthController extends BaseController
         $user = Auth::user()->token();
         $user->revoke(); // Revoke the token.
         $user->delete(); // Delete the token from the database.
-        return $this->sendResponse(['user' => $user], 'Successfully logged out.');
+        return $this->sendResponse([], 'Successfully logged out.');
 
     }
 
