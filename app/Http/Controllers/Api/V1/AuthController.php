@@ -24,7 +24,7 @@ class AuthController extends BaseController
             'password'                  => bcrypt($request->password)
         ]);
        
-        $token = $user->createToken('LaravelAuthApp')->accessToken;
+        $token = $user->createToken('deDisselAuth')->accessToken;
 
         return $this->sendResponse(['token' => $token], 'Successfully registered.');
 
@@ -38,7 +38,7 @@ class AuthController extends BaseController
         ];
  
         if (Auth::attempt($data)) {
-            $token = Auth::user()->createToken('LaravelAuthApp')->accessToken;
+            $token = Auth::user()->createToken('deDisselAuth')->accessToken;
 
             return $this->sendResponse(['token' => $token], 'Successfully logged in.');
 
@@ -58,7 +58,8 @@ class AuthController extends BaseController
     public function logout()
     {
         $user = Auth::user()->token();
-        $user->revoke();
+        $user->revoke(); // Revoke the token.
+        $user->delete(); // Delete the token from the database.
         return $this->sendResponse(['user' => $user], 'Successfully logged out.');
 
     }
