@@ -22,7 +22,8 @@ class CustomerCreateRequest extends FormRequest
     {
         throw new HttpResponseException(response()->json([
             'success'   => false,
-            'errors'    => $validator->errors()
+            'message'   => 'Validation Error(s).',
+            'data'      => $validator->errors()
         ], 422));
     }
 

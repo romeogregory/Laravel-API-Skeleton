@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\BaseController as BaseController;
 use App\Http\Requests\CustomerCreateRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 
-class AuthController extends Controller
+class AuthController extends BaseController
 {
     public function register(CustomerCreateRequest $request)
     {
@@ -24,11 +25,9 @@ class AuthController extends Controller
         ]);
        
         $token = $user->createToken('LaravelAuthApp')->accessToken;
- 
-        return response()->json([
-            'success'   => true,
-            'token'     => $token
-        ], 200);
+
+        return $this->sendResponse(['token' => $token], 'Successfully registered.');
+
     }
 
     public function login(Request $request)
@@ -38,17 +37,37 @@ class AuthController extends Controller
             'password'  => $request->password
         ];
  
-        if (auth()->attempt($data)) {
-            $token = auth()->user()->createToken('LaravelAuthApp')->accessToken;
-            return response()->json([
-                'success' => true,
-                'token' => $token
-            ], 200);
+        if (Auth::attempt($data)) {
+            $token = Auth::user()->createToken('LaravelAuthApp')->accessToken;
+
+            return $this->sendResponse(['token' => $token], 'Successfully logged in.');
+
         } else {
-            return response()->json([
-                'success' => false,
-                'error' => 'Unauthorised'
-            ], 401);
+            if (!Customer::where('email', '=', $data['email'])->exists()) {
+                return $this->sendError('Unauthorised.', ['error'=>'Email does not exist']);
+             }
+             else
+             {
+                return $this->sendError('Unauthorised.', ['error'=>'Password does not match with the given Email']);
+             }
+            
+
         }
-    }  
+    }
+
+    public function logout()
+    {
+        $user = Auth::user()->token();
+        $user->revoke();
+        return $this->sendResponse(['user' => $user], 'Successfully logged out.');
+
+    }
+
+    public function getAuthCustomer()
+    {
+        $customer = Auth::guard('api')->user();
+        return $this->sendResponse(['customer' => $customer], 'Customer fetched.');
+
+    }
+
 }

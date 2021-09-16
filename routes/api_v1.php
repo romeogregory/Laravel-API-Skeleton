@@ -19,13 +19,14 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::post('register', [AuthController::class, 'register']);
-Route::post('login', [AuthController::class, 'login']);
+Route::post('register', [AuthController::class, 'register']); /* Register route */
+Route::post('login', [AuthController::class, 'login']); /* Login route */
 
-// Customer routers
 Route::middleware('auth:api')->group( function () {
+    Route::post('logout', [AuthController::class, 'logout']); /* Logout route */
+    Route::get('me', [AuthController::class, 'getAuthCustomer']); /* Get current auth user information */
 
-    Route::get('customers', [CustomerController::class, 'index']);
-    Route::get('test', [CustomerController::class, 'test']);
+    // Customer routers
+    Route::get('customers', [CustomerController::class, 'index']); /* Fetch all customers */
 
 });
