@@ -15,16 +15,13 @@ class AuthController extends BaseController
         $user = Customer::create([
             'firstname'                 => $request->firstname,
             'lastname'                  => $request->lastname,
-            'insertion'                 => $request->insertion,
-            'mobile'                    => $request->mobile,
-            'driving_license_category'  => $request->driving_license_category,
-            'drivers_license_number'    => $request->drivers_license_number,
             'username'                  => $request->username,
             'email'                     => $request->email,
             'password'                  => bcrypt($request->password)
         ]);
+        $user->attachRole('user'); // Make user default role 'user'
        
-        $token = $user->createToken('deDisselAuth')->accessToken;
+        $token = $user->createToken('ApiAuth')->accessToken;
 
         return $this->sendResponse(['token' => $token], 'Successfully registered.');
 
@@ -38,7 +35,7 @@ class AuthController extends BaseController
         ];
  
         if (Auth::attempt($data)) {
-            $token = Auth::user()->createToken('deDisselAuth')->accessToken;
+            $token = Auth::user()->createToken('ApiAuth')->accessToken;
 
             return $this->sendResponse(['token' => $token], 'Successfully logged in.');
 

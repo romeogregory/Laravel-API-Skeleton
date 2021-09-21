@@ -28,5 +28,10 @@ Route::middleware('auth:api')->group( function () {
 
     // Customer routers
     Route::get('customers', [CustomerController::class, 'index']); /* Fetch all customers */
+    Route::post('customer/create', [CustomerController::class, 'store']); /* Create new customers */
+    Route::get('customer/{id}', [CustomerController::class, 'show']); /* Fetch single customer */
+    Route::patch('customer/edit/{id}', [CustomerController::class, 'update']); /* Update single customer */
+    Route::delete('customer/{customer}', [CustomerController::class, 'destroy']); /* Remove single customer */
+    
 
 });

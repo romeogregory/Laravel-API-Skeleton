@@ -17,10 +17,6 @@ class CreateCustomersTable extends Migration
             $table->id();
             $table->string('firstname');
             $table->string('lastname');
-            $table->string('insertion');
-            $table->string('mobile');
-            $table->string('driving_license_category');
-            $table->string('drivers_license_number');
             $table->string('username')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

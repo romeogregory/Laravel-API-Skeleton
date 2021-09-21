@@ -22,10 +22,6 @@ class Customer extends Authenticatable
     protected $fillable = [
         'firstname',
         'lastname',
-        'insertion',
-        'mobile',
-        'driving_license_category',
-        'drivers_license_number',
         'username',
         'email',
         'password',
