@@ -1,0 +1,79 @@
+{
+	"info": {
+		"_postman_id": "20f618e2-4326-43d5-8be2-16853e177aa6",
+		"name": "Roles",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Assign role",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "role",
+							"value": "administrator",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:80/api/v1/role/assign",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "80",
+					"path": [
+						"api",
+						"v1",
+						"role",
+						"assign"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZjVhM2M3MTYyNmQ4ZjY4ZmU1ZDJjZGE2ZjgzOTAzYTJhZGJlOWE2NmEwYzNlYzYzMzQ2OGM0NzZjYjRhMjEzOTg2OWQzZTdhZjVjOWI4OTciLCJpYXQiOjE2Mzg4ODYxNjEuMTQ4NzU2LCJuYmYiOjE2Mzg4ODYxNjEuMTQ4NzU5LCJleHAiOjE2NzA0MjIxNjEuMTM2NjY2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.QnDYSkp48D-94F-_fRB7HZ40E7EX5zKND69UeEuIGhmariHvp2uFIom85wwpCJmjn746XwOIIo5DUm6s2fuxbqSRfX_TO8lyRheBa4mP2kxTdPbnr1KfuFZIYtqX96gMkWbLiz-7dYjE2dtOUS_h3WwMPykT9HBJrpWE898yKQIuHYlhsx0zagv-X_9sfAgfBKF8JfhPZ3BlCQIgPv1vQwm308LJcFBnUGJDRYEYI2qCqCJqaf0NqPAhZmWy7C4K76wU9TWS2EQ7dXK9sS8ALxZsgX7ZBKthj3LrEvbSXfy6USQEoxQ3JO3EqpPnWSWajXkddk-uV12kh4NNFCteCnummdPifED9AzJSQiqc0ema7wKJv0OEEruLUOAwVeynVKvqYw5KE4ec1V5r9ZAG1wbDcSvODHv9j9eaANYl0YLAVz6to5z_j1tqphfD_rgmMHT1_A0IUJj00TC25uqI-8zcbMaUeXAyv5F05EuyBNTwzLiGv2RMZFZtotWRXac0gJjbUt69UPSoBMnxgRvtOedtIui9gsyTo3fDATK-p4Tsw3_ufULNoCCeemEmBffe7YqDrCXMKgG74NhP9ji_GojK2EngjgbyR-DYbSsoNBb_XE_9w-miqGSPZET_ahX2Bgfujl_rqRWyeBvXOc6ffEsr7jM1-XvMG6z5uHGxv7k",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

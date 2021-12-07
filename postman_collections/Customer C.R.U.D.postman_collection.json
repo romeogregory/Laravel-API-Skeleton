@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "c29226d9-7f88-47b9-96a6-bf972fa5cdd3",
+		"name": "Customer C.R.U.D",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "127.0.0.1:80/api/v1/customers",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "80",
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get single",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "127.0.0.1:80/api/v1/customer/2",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "80",
+					"path": [
+						"api",
+						"v1",
+						"customer",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "firstname",
+							"value": "john",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "doe",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "johndoe",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "johndoe@example.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "john123",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "john123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:80/api/v1/customer/create",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "80",
+					"path": [
+						"api",
+						"v1",
+						"customer",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "127.0.0.1:80/api/v1/customer/edit/2?firstname=john&lastname=doe&username=johndoe1&email=johndoe1@example.com&password=john123&password_confirmation=john123",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "80",
+					"path": [
+						"api",
+						"v1",
+						"customer",
+						"edit",
+						"2"
+					],
+					"query": [
+						{
+							"key": "firstname",
+							"value": "john"
+						},
+						{
+							"key": "lastname",
+							"value": "doe"
+						},
+						{
+							"key": "username",
+							"value": "johndoe1"
+						},
+						{
+							"key": "email",
+							"value": "johndoe1@example.com"
+						},
+						{
+							"key": "password",
+							"value": "john123"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "john123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "127.0.0.1:80/api/v1/customer/1",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "80",
+					"path": [
+						"api",
+						"v1",
+						"customer",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOThmZjdhMDNlZThiMDllNGE1MGVkM2MzY2Q2ZGVhYWQwYjUzNDM0NTE3YTc4OTBjOGEyZTdlZGFiYjNjOTA0NTc5ODIwMGE3YzVmOWM0ZTEiLCJpYXQiOjE2Mzg4ODY2NjAuMzI4Njk0LCJuYmYiOjE2Mzg4ODY2NjAuMzI4Njk4LCJleHAiOjE2NzA0MjI2NjAuMzIwNzQ3LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.EIWLjyF81CoiHTFXUGSlPa9dsbSDRnsz5e-eF8SDQiBfpiw04w0lTx4V2IYluwMJzU7meFLTIzrbMwM3sRGV039t_1HA6NnO226c7VV93HXcMgZOz1IQQrUGBbXaT8TtUHdECHVVggtdoh19cLamcSPA_WL11Cl7KyyZi1pCHUMJ0g406R_xzQZMvnAGRkMVKYSc_IImnaXgHD39NeUQFRz-JN73_MbFtKHC_oLL-BAORo16pzzOEEIpw49AJYKCsvxKdZCoQ9fnhWrYtcOIsa_Ens9Fl8JVywT1yorQR-P0SH2Q8UaKxDwaoK0iJ5-KokLZdQh7JjrgynjT-jglzmSoEfeI4UGEaF4kl5NHl76V678BlveTGjNHeSBeTCvzFE9s0zlkzuXdR0iY1q9NCo1-d6eo2w7fhO51nAHkbYsX9ksB9116XqufKSD-FTDGrRLStIpjynAAlR3Oa1e8KNL7bhHHYTf3QV4PyCy_78MYbkvzUyQOMMGN-LV6R8Fh-k1zwOFpFwAoYXZYevcsbjHqEgDIUJXBI8v__goR92MlA-3giCyEYxymU5oJChxfHN14TC3AY_5EumuCZSbCEz2zb72feuXUqndvlGcLOPYqnwu2OrWzBo3OZznPS88B7H9Zsk75SYWuo36MGQjfYT5-VRVOsxgV9MqEkY9E9bw",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

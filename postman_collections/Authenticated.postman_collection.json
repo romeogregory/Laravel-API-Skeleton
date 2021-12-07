@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "4e9b6fce-9f60-46a9-8a88-36c6e9ab5124",
+		"name": "Authenticated",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "127.0.0.1:80/api/v1/logout",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "80",
+					"path": [
+						"api",
+						"v1",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Whoami",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "127.0.0.1:80/api/v1/me",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "80",
+					"path": [
+						"api",
+						"v1",
+						"me"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNmY0YjNjODY3NDE2N2RjNGNlNGJhYjVhZDMwYWY5ZGM5MDUwMjk1YjQzNmJjZWRiMDY1M2ZkZDUyMzUxMDllZTI1ODgyZjZkMjdkNDBiMDMiLCJpYXQiOjE2Mzg4ODUwNzIuODA2NTMyLCJuYmYiOjE2Mzg4ODUwNzIuODA2NTM1LCJleHAiOjE2NzA0MjEwNzIuNzk3NjgxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.SeEp6LrU3ch70zEzkFCaF1rx7PIgS3t2cgCV3_dmXwppUl9B6a9hsDIml44rDTWO-LDqfnCcl46vL6J1eI6G_kV8idJlJMh9kGsJ6QdCs8rI5nhIFN9HZ0ULJ0ABuqKyt_qpI9XUziJoITJdoBypD8nuOV7QRycFzEYJCG4PmgZiniLGYuwz0e61SpDWqy6McRV-uIC5OEO2lDw-d2Ajx_BdUyB7hF2-kGO5uZ1J8E5GGduRyZpuVkbV8aPosbt-K-BY-5ibEpiLSQ7CkSNHV6UTaI7c6_Z29xsoCgYPdKJVl7Thsdij3fJ42ehHkpm4cllxK6UUqx77wE5q1nX3CitSUk8U-slaVAMsZ0beBNbuGWCf4xiw_mMWiboWxeBfDr6enxqCRshOOzYfLwbuVJrr5scq112cxEvJ00djStzpMWBDLVVzNjcksqahEh6Afvc6wMUT-t4D0r-7ixjP9x2symv0ALHKbZ9Wmpvpw_Fo2KF5Xro7OS0gXz_-v_l1rTxrmcD728Tb4g484Shi9q78uYboiH6GiLIC93w_2Rp9bnp9s7UhuMzJDTiN-4TxZ5zDchZrPBGA7s_NgDNIQZ3koS6lazDntlTS18hHfVRyTfLbyclJtpqWPmQQ4jG449SkGr0NNdxR5cV7jh36Qe_0U-_Dw_kZu-aD4Ds1dzQ",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

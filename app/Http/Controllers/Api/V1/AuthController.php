@@ -19,7 +19,6 @@ class AuthController extends BaseController
             'email'                     => $request->email,
             'password'                  => bcrypt($request->password)
         ]);
-        $user->attachRole('user'); // Make user default role 'user'
        
         $token = $user->createToken('ApiAuth')->accessToken;
 

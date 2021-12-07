@@ -15,9 +15,6 @@ return [
         'administrator' => [
             'customers' => 'c,r,u,d',
         ],
-        'user' => [
-            'customers' => 'r',
-        ],
     ],
 
     'permissions_map' => [

@@ -1,0 +1,142 @@
+{
+	"info": {
+		"_postman_id": "d2231fc4-6852-4286-b68f-9462ae87929d",
+		"name": "Auth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email\n",
+							"value": "admin@admin.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:80/api/v1/login",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "80",
+					"path": [
+						"api",
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "firstname",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "administrator",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "admin@admin.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "admin123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:80/api/v1/register",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "80",
+					"path": [
+						"api",
+						"v1",
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"value": ""
+		}
+	]
+}
